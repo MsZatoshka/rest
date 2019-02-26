@@ -1,0 +1,74 @@
+ <!DOCTYPE html>
+ <html lang="ru">
+ <head>
+ 	<meta charset="UTF-8">
+ 	<title>Блог главная</title>
+ 	<link rel="stylesheet" href="../css/main.css">
+ 	<meta name="viewport" content="width=device-width">
+ </head>
+ <body>
+ 	<div id="app">
+	 	<header> 
+	 		<div class="conteiner">
+	 			<div class="header">
+	 				<div id="logo">
+			 			<div class="img_logo">
+			 				<a href="index.html" class="logo_link">
+			 					<img src="../img/logo.png" alt="">
+			 				</a>
+			 			</div>
+			 			<div class="name_logo">
+			 				<a href="index.html" class="logo_link">Chartion</a>
+			 			</div>
+		 				<div class="text_logo">Блог о спорте</div>
+		 			</div>
+		 			<nav class="nav">
+			 			<a href="index.html" class="nav_link activ">Главная</a>
+			 			<a href="category.html" class="nav_link">Категории</a>
+			 			<template v-if="user.token == null">
+				 			<a href="registration.html" class="nav_link">Регистрация</a>
+				 			<a href="authorization.html" class="nav_link">Авторизация</a>
+		 				</template>
+		 				<template v-if="user.token != null">
+				 			<div class="block_user"><span class="user_name">{{user.nik}}</span><a href="" class="nav_link">Выход</a></div>
+		 				</template>
+		 			</nav>
+		 			<form class="search_all" method="get" action="">
+		 				<input type="search" class="search_input" name="search">
+		 				<input value="" type="submit" class="search_button">
+		 			</form>
+	 			</div> 
+	 		</div>
+	 	</header>
+	 	<main>
+	 		<div class="conteiner">
+	 			<div class="post_all">
+	 				<!--  пост начало  -->
+			 		<div  class="post" v-for="value in posts">
+		 				<div class="img_post"><a href="#" @click="getPost(value.id)"><img :src="url.img + value.img" alt=""></a></div>
+		 				<div class="content_post">
+			 				<a :href=" url.post + value.id " class="name_post">{{value.title}} </a>
+			 				<p class="text_post">{{value.anons}}</p>
+			 				<div class="data_post">{{value.data}}</div>
+		 				</div>
+	 				</div>
+	 				<!--  пост конец -->
+
+	 				<!-- Пагинация -->
+	 			<div class="pagination">
+	 				<a href="#" class="pagination_start" v-if="id_pag != 1" @click = "id_pag--">
+	 					Назад
+	 				</a>
+	 				<a href="#" class="pagination_end" v-if="id_pag != col_pag" @click = "id_pag++">
+	 					Вперед
+	 				</a>
+	 			</div>
+	 			<!-- Пагинация -->
+	 		</div>
+	 	</main>
+	</div>
+ 	<script src="../js/vue.min.js"></script>
+ 	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+ 	<script src="../js/index.js"></script>
+ </body>
+ </html>

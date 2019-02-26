@@ -1,0 +1,120 @@
+//
+//	row() для активации margin укажите row(1) и для padding col() укажите   col(i,1) размер елемента = i
+// flex() порядок 1 - flex-direction(r,c) 2 - justify-content($ar) 3 - align-items($ar) $ar = fs,fe, as,ab,c
+// grid()  
+//
+=grid($c:null, $r:null, $g:null, $f:null)
+	display: grid
+	@if $c != null
+		grid-template-columns: $c
+	@if $r != null
+		grid-template-rows: $r
+	@if $g != null
+		grid-gap: $g
+	@if $f != null
+		@if $f == c
+			grid-auto-flow: column
+		@else if $f == r
+			grid-auto-flow: row	
+=grid-auto($c:null,$r:null)
+	@if $c != null
+		grid-auto-columns: $c
+	@if $r != null
+		grid-auto-rows: $r
+=grid-pos($c:null, $r:null)
+	@if $c != null
+		grid-column: $c
+	@if $r != null
+		grid-row: $r
+=grid-items($ji:null, $ai:null)
+	@if $ji != null
+		justify-items: $ji
+	@if $ai != null
+		align-items: $ai
+=grid-item($ji:null, $ai:null)
+	@if $ji != null
+		justify-self: $ji
+	@if $ai != null
+		align-self: $ai
+=mAuto()
+	margin-left: auto
+	margin-right: auto
+
+=flex($df:0, $js:0, $ai:0)
+	// направление
+	@if $df == r
+		flex-direction: row
+	@else if $df == c
+		flex-direction: column
+	// по второстипенной оси
+	@if $ai == fs
+		align-items: flex-start
+	@else if $ai == fe
+		align-items: flex-end
+	@else if $ai == c
+		align-items: center
+	@else if $ai == sb
+		align-items: space-between
+	@else if $ai == sa
+		align-items: space-around
+	// по основной оси
+	@if $js == fs
+		justify-content: flex-start
+	@else if $js == fe
+		justify-content: flex-end
+	@else if $js == c
+		justify-content: center
+	@else if $js == sb
+		justify-content: space-between
+	@else if $js == sa
+		justify-content: space-around
+
+
+=row($check:0)
+	@if $check == 1	
+		margin-right: -15px
+		margin-left: -15px
+	display: flex
+	flex-wrap: wrap
+
+
+=col($i:0, $m:0)
+	@if $m == 1
+		padding-left: 15px
+		padding-right: 15px
+	@if $i == 1
+		max-width: 8.33333333333%
+		flex: 0 0 8.33333333333%
+	@else if $i == 2
+		max-width: 16.666667%
+		flex:  0 0 16.666667%
+	@else if $i == 3
+		max-width: 25%
+		flex: 0 0 25%
+	@else if $i == 4
+		max-width: 33.333333%
+		flex: 0 0 33.333333%
+	@else if $i == 5
+		max-width: 41.666667%
+		flex: 0 0 41.666667%
+	@else if $i == 6
+		max-width:  50%
+		flex: 0 0 50%
+	@else if $i == 7
+		max-width: 58.333333%
+		flex: 0 0 58.333333%
+	@else if $i == 8
+		max-width: 66.666667%
+		flex: 0 0 66.666667%
+	@else if $i == 9
+		max-width: 75%
+		flex: 0 0 75%
+	@else if $i == 10
+		flex: 0 0 83.333333%
+		max-width: 83.333333%
+	@else if $i == 11
+		max-width: 91.666667%
+		flex: 0 0 91.666667%
+	@else if $i == 12
+		max-width: 100%
+		flex: 0 0 100%

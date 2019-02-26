@@ -1,0 +1,117 @@
+.header
+	+row()
+	+flex(0,sb,c)
+	padding-top: $header_p_top
+
+//  Логотип
+#logo
+	display: flex
+	+col(5)
+	+flex(0,fs,c)
+.img_logo
+	width: $logo_w
+.logo_link
+	color: $linkLogo_color
+.name_logo
+	margin-left: $nameLogo_m_l
+	font-size: $nameLogo_sz
+.text_logo
+	color: $textLogo_color
+	margin-left: $textLogo_m_l
+
+//  главное меню
+.nav
+	+col(6)
+	+row()
+	+flex(0,sb,c)
+.nav_link
+	transition: all 0.5s 
+	color: $link_color
+	&:hover, &.activ
+		color: $link_color_hover
+.block_user
+	// width: 100%
+.user_name
+	margin-right: 10px
+// Посты
+.post_all
+	margin-top: $postAll_m_t
+	margin-bottom: $postAll_m_b
+.post
+	display: flex
+	width: $post_w
+	margin-bottom: $post_m_b
+.content_post
+	display: flex
+	+flex(c,0,sb)
+	margin-left: $contentPost_m_l
+	width: $postContent_w	
+.img_post
+	width: $postImg_w
+	height: $postImg_h
+	img
+		height: 100%
+.name_post
+	font-weight: bold
+	font-size: $namePost_sz
+	margin-bottom: $postName_m_b
+.text_post
+	font-size: $nameTextt_sz
+	text-align: justify
+.data_post
+	margin-top: auto
+
+
+// Один пост 
+.post_ed
+	margin-top: 40px
+	.img_post
+		margin-bottom: 20px
+	.data_post
+		margin-top: 10px
+.post_category
+	margin-top: 10px
+	span
+		font-weight: bold
+.category_link
+	font-size: $categoryLink
+	&:after
+		content: ","
+	&:last-child:after
+		content: ""
+	&:hover
+		transition: all 0.5s
+		color: #514138	
+// Навигация 
+.pagination
+	width: 100%
+	text-align: center
+	padding-bottom: 50px
+	a
+		color: $linkPagination_color
+		&.activ,&:hover
+			color: $linkPagination_color_hover 	
+.pagination_start
+	margin-right: 10px
+.pagination_end
+	margin-left: 10px
+.pagination_number	
+	margin-left: 5px
+
+//  Поиск
+.search_all
+	margin-top: 20px
+	border: 1px solid #000
+	padding-top: 3px
+	padding-right: 4px
+
+.search_input
+	padding-bottom: 5px
+	padding-left: 5px
+.search_button
+	background-image: url(../img/поиск.svg)
+	background-size: 100% 100%
+	background-color: transparent
+	width: 16px
+	height: 100%
+	cursor: pointer
